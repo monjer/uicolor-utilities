@@ -501,4 +501,28 @@ static const char *colorNameDB = ","
 	
 	return result;
 }
+
++(UIColor *)colorUnit255Red:(CGFloat)red green:(CGFloat)green blue:(CGFloat)blue alpha:(CGFloat)alpha
+{
+    red = red/255.0 ;
+    green = green/255.0 ;
+    blue = blue/255.0 ;
+    UIColor *color = [UIColor colorWithRed:red green:green blue:blue alpha:alpha];
+    return color ;
+}
+
++(UIColor *)colorFrom255String:(NSString*)colorString seperator:(NSString*)seperator
+{
+    if(colorString == nil){
+        return nil ;
+    }
+    seperator = seperator == nil ? @"," : seperator ;
+    NSArray *array = [colorString componentsSeparatedByString:seperator] ;
+    CGFloat red = ((NSString*)[array objectAtIndex:0]).floatValue;
+    CGFloat green = ((NSString*)[array objectAtIndex:1]).floatValue;
+    CGFloat blue = ((NSString*)[array objectAtIndex:2]).floatValue;
+    UIColor *color = [UIColor colorUnit255Red:red green:green blue:blue alpha:1];
+    
+    return color ;
+}
 @end

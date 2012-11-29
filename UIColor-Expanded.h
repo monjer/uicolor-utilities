@@ -45,6 +45,11 @@
 
 + (UIColor *)colorWithName:(NSString *)cssColorName;
 
++(UIColor *)colorUnit255Red:(CGFloat)red green:(CGFloat)green blue:(CGFloat)blue alpha:(CGFloat)alpha ;
+
+//like NSString *colorString = @"255,255,255" ;
++(UIColor *)colorFrom255String:(NSString*)colorString seperator:(NSString*)seperator ;
+
 @end
 
 #if SUPPORTS_UNDOCUMENTED_API
