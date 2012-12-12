@@ -47,7 +47,8 @@
 
 +(UIColor *)colorUnit255Red:(CGFloat)red green:(CGFloat)green blue:(CGFloat)blue alpha:(CGFloat)alpha ;
 
-//like NSString *colorString = @"255,255,255" ;
+//like NSString *colorString = @"255,255,255,0.5" ;
+//default seperator is ","
 +(UIColor *)colorFrom255String:(NSString*)colorString seperator:(NSString*)seperator ;
 
 @end

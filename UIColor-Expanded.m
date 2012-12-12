@@ -516,12 +516,21 @@ static const char *colorNameDB = ","
     if(colorString == nil){
         return nil ;
     }
+
+    //set default seperator
     seperator = seperator == nil ? @"," : seperator ;
+    
     NSArray *array = [colorString componentsSeparatedByString:seperator] ;
+    NSAssert(array.count != 3 && array.count != 4, @"error color string format");
     CGFloat red = ((NSString*)[array objectAtIndex:0]).floatValue;
     CGFloat green = ((NSString*)[array objectAtIndex:1]).floatValue;
     CGFloat blue = ((NSString*)[array objectAtIndex:2]).floatValue;
-    UIColor *color = [UIColor colorUnit255Red:red green:green blue:blue alpha:1];
+    CGFloat alpha = 1.0 ;
+    if(array.count == 4){
+        alpha = ((NSString*)[array objectAtIndex:3]).floatValue;
+    }
+
+    UIColor *color = [UIColor colorUnit255Red:red green:green blue:blue alpha:alpha];
     
     return color ;
 }
