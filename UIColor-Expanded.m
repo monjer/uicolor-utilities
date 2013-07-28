@@ -507,6 +507,9 @@ static const char *colorNameDB = ","
     red = red/255.0 ;
     green = green/255.0 ;
     blue = blue/255.0 ;
+    
+    alpha = fabs(alpha)>1 ? 1.0 : fabs(alpha);
+    
     UIColor *color = [UIColor colorWithRed:red green:green blue:blue alpha:alpha];
     return color ;
 }
@@ -528,6 +531,7 @@ static const char *colorNameDB = ","
     CGFloat alpha = 1.0 ;
     if(array.count == 4){
         alpha = ((NSString*)[array objectAtIndex:3]).floatValue;
+        alpha = fabs(alpha) > 1 ? 1.0 :fabs(alpha);
     }
 
     UIColor *color = [UIColor colorUnit255Red:red green:green blue:blue alpha:alpha];
